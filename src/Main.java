@@ -6,16 +6,17 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        reader();
-        ClassRoom classRoom = new ClassRoom(students);
+        ;
+        ClassRoom classRoom = new ClassRoom(reader());
         System.out.println(classRoom.getAverageGrade("Mathematics"));
         System.out.println(classRoom.getGradesForDiscipline("Mathematics"));
         System.out.println(classRoom.getGradesForStudent("Ealhstan Saira"));
 
 
     }
-static List<Student> students = new ArrayList<>();
-    private static void reader() throws FileNotFoundException {
+
+    private static List<Student> reader() throws FileNotFoundException {
+         List<Student> students = new ArrayList<>();
         try {
         Scanner scanner = new Scanner(new File("files","grades.txt"));
         while (scanner.hasNextLine()){
@@ -30,6 +31,8 @@ static List<Student> students = new ArrayList<>();
     }
         catch (FileNotFoundException ignored) {
         }
+        return students;
     }
+
 
 }
